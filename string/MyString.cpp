@@ -123,7 +123,7 @@ int MyString::GetObjectCount()
     return objectCount;
 }
 
-// Перегрузка оператора +
+
 MyString MyString::operator+(const MyString& b)
 {
     MyString temp;
