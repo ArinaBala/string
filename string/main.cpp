@@ -11,7 +11,7 @@ int main()
 
     cout << "Objects now: " << MyString::GetObjectCount() << endl;
 
-    MyString str3 = str1 + str2;  // работает перегрузка +
+    MyString str3 = str1 + str2;  
     cout << "Concatenation result: ";
     str3.Print();
 
