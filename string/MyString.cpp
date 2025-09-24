@@ -1,20 +1,19 @@
 #include "MyString.h"
 #include <cstring>
 
-
 int MyString::objectCount = 0;
 
 MyString::MyString()
 {
     length = 80;
-    str = new char[length + 1] {};
+    str = new char[length + 1]{};
     objectCount++;
 }
 
 MyString::MyString(int size)
 {
     length = size;
-    str = new char[length + 1] {};
+    str = new char[length + 1]{};
     objectCount++;
 }
 
@@ -39,10 +38,8 @@ MyString::MyString(MyString&& obj)
 {
     length = obj.length;
     str = obj.str;
-
     obj.length = 0;
     obj.str = nullptr;
-
     objectCount++;
     cout << "Move constructor\n";
 }
@@ -56,14 +53,9 @@ MyString::~MyString()
 void MyString::Print()
 {
     if (str)
-    {
         cout << str << endl;
-    }
-
     else
-    {
         cout << "Empty" << endl;
-    }
 }
 
 bool MyString::MyStrStr(const char* s)
@@ -84,9 +76,7 @@ int MyString::MyChr(char c)
     for (int i = 0; i < length; i++)
     {
         if (str[i] == c)
-        {
             return i;
-        }
     }
     return -1;
 }
@@ -123,19 +113,23 @@ void MyString::MyDelChr(char c)
 int MyString::MyStrCmp(MyString& b)
 {
     int res = strcmp(str, b.str);
-
-    if (res < 0)
-    {
-        return -1;
-    }
-    if (res > 0)
-    {
-        return 1;
-    }
+    if (res < 0) return -1;
+    if (res > 0) return 1;
     return 0;
 }
 
 int MyString::GetObjectCount()
 {
     return objectCount;
+}
+
+// Перегрузка оператора +
+MyString MyString::operator+(const MyString& b)
+{
+    MyString temp;
+    temp.length = length + b.length;
+    temp.str = new char[temp.length + 1];
+    strcpy_s(temp.str, length + 1, str);
+    strcat_s(temp.str, temp.length + 1, b.str);
+    return temp;
 }
