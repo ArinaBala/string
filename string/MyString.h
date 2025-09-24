@@ -7,7 +7,7 @@ class MyString
     char* str;
     int length;
 
-    static int objectCount; 
+    static int objectCount;
 
 public:
     MyString();
@@ -25,7 +25,7 @@ public:
     void MyStrCat(MyString& b);
     void MyDelChr(char c);
     int MyStrCmp(MyString& b);
+    MyString operator+(const MyString& b);
 
-    
     static int GetObjectCount();
 };
