@@ -6,14 +6,20 @@ int main()
 {
     cout << "Objects before: " << MyString::GetObjectCount() << endl;
 
-    MyString str1("Alice");
-    MyString str2("Bob");
+    MyString str1("Hello");
+    MyString str2("World");
 
     cout << "Objects now: " << MyString::GetObjectCount() << endl;
 
+    MyString str3 = str1 + str2;  // работает перегрузка +
+    cout << "Concatenation result: ";
+    str3.Print();
+
     {
-        MyString str3 = str1;
+        MyString str4 = str1 + str3;
         cout << "Objects inside scope: " << MyString::GetObjectCount() << endl;
+        cout << "str4 = ";
+        str4.Print();
     }
 
     cout << "Objects after scope: " << MyString::GetObjectCount() << endl;
