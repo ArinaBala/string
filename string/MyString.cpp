@@ -53,9 +53,13 @@ MyString::~MyString()
 void MyString::Print()
 {
     if (str)
+    {
         cout << str << endl;
+    }
     else
+    {
         cout << "Empty" << endl;
+    }
 }
 
 bool MyString::MyStrStr(const char* s)
@@ -76,7 +80,9 @@ int MyString::MyChr(char c)
     for (int i = 0; i < length; i++)
     {
         if (str[i] == c)
+        {
             return i;
+        }
     }
     return -1;
 }
@@ -113,8 +119,14 @@ void MyString::MyDelChr(char c)
 int MyString::MyStrCmp(MyString& b)
 {
     int res = strcmp(str, b.str);
-    if (res < 0) return -1;
-    if (res > 0) return 1;
+    if (res < 0)
+    {
+        return -1;
+    }
+    if (res > 0) 
+    {
+        return 1;
+    }
     return 0;
 }
 
